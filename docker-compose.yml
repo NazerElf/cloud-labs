@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  web:
+    image: zlzeds/lab1:latest
+    ports:
+      - "80:8080"
+    restart: always
+    environment:
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - SQLALCHEMY_DATABASE_URI=${SQLALCHEMY_DATABASE_URI}
+
+  watchtower:
+    image: nickfedor/watchtower:latest
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_API_VERSION=1.44
+    command: >
+      --interval 60
+      --cleanup
+      --include-stopped
+      --revive-stopped
