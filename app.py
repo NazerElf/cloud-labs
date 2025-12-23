@@ -53,7 +53,7 @@ authorizations = {
 }
 
 # Initialize Flask-RESTX
-api = Api(app, doc='/api/docs', title='Sensor API', description='Sensor Management API',
+api = Api(app, doc='/api/docs', title='Sensor API', description='Test',
           authorizations=authorizations, security='Bearer Auth')
 
 register_routes(api)
