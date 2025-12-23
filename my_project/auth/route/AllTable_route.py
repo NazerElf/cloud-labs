@@ -11,7 +11,7 @@ calculate_input_model = all_table_ns.model('CalculateInput', {
     'table_name': fields.String(required=True),
     'operation': fields.String(required=True, enum=['AVG', 'SUM', 'COUNT'])
 })
-
+#123
 @all_table_ns.route('/calculate')
 class CalculateResource(Resource):
     @all_table_ns.doc('calculate_stats')
